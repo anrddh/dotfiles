@@ -4,6 +4,7 @@ Plug 'benjie/neomake-local-eslint.vim'
 Plug 'Neomake/Neomake'
 Plug 'tpope/vim-sleuth'
 Plug 'altercation/vim-colors-solarized'
+Plug 'tmux-plugins/vim-tmux'
 call plug#end()
 
 " Use deoplete
