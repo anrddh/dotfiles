@@ -1,19 +1,20 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'benjie/neomake-local-eslint.vim'
-Plug 'Neomake/Neomake'
+Plug 'w0rp/ale'
 Plug 'tpope/vim-sleuth'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " Use deoplete
 let g:deoplete#enable_at_startup = 1
 
-" Auto-start Neomake
-autocmd! BufWritePost,BufEnter * Neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_verbose = 3
+" Set eslint as the only valid JS linter
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
 
 " Some sane defaults
 set number
@@ -28,3 +29,8 @@ set guifont=Source\ Code\ Pro\ 11
 
 " Webpack recommended stuff
 :set backupcopy=yes
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" tern
+autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
