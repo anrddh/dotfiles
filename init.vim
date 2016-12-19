@@ -3,7 +3,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-sleuth'
-Plug 'altercation/vim-colors-solarized'
+Plug 'ajh17/Spacegray.vim'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
@@ -20,9 +20,8 @@ let g:ale_linters = {
 set number
 filetype plugin indent on
 
-" Set color scheme to Solarized Dark
-set background=dark
-colorscheme solarized
+" Set color scheme to spacegray
+colorscheme spacegray
 
 " Set font to Source Code Pro
 set guifont=Source\ Code\ Pro\ 11
