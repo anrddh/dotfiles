@@ -54,7 +54,7 @@ plugins=(git node npm bower brew heroku)
 
 # User configuration
 
-export PATH="$PATH:/Users/awesomeaniruddh/.nvm/versions/node/v5.7.1/bin:/Users/awesomeaniruddh/.rvm/gems/ruby-2.2.1/bin:/Users/awesomeaniruddh/.rvm/gems/ruby-2.2.1@global/bin:/Users/awesomeaniruddh/.rvm/rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/mongod/bin:/opt/X11/bin:/Library/TeX/texbin:$HOME/.rvm/bin:/Users/awesomeaniruddh/.cargo/bin:/Users/awesomeaniruddh/anaconda3/bin:/usr/local/texlive/2016/bin/x86_64-darwin:`yarn global bin`"
+export PATH="$PATH:/Users/awesomeaniruddh/.nvm/versions/node/v5.7.1/bin:/Users/awesomeaniruddh/.rvm/gems/ruby-2.2.1/bin:/Users/awesomeaniruddh/.rvm/gems/ruby-2.2.1@global/bin:/Users/awesomeaniruddh/.rvm/rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/mongod/bin:/opt/X11/bin:/Library/TeX/texbin:$HOME/.rvm/bin:/Users/awesomeaniruddh/.cargo/bin:/Users/awesomeaniruddh/anaconda3/bin:/usr/local/texlive/2016/bin/x86_64-darwin:`yarn global bin`:$HOME/dotfiles/tmux-spotiy-info"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 export RUST_SRC_PATH="/Users/awesomeaniruddh/rust/src"
