@@ -1,35 +1,107 @@
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'benjie/neomake-local-eslint.vim'
-Plug 'w0rp/ale'
-Plug 'tpope/vim-sleuth'
-Plug 'ajh17/Spacegray.vim'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'sheerun/vim-polyglot'
+" General Settings
+    " base
+	filetype plugin indent on
+	syntax on
+
+    " interface
+    	set background=dark
+	set colorcolumn=81
+	set cursorline
+	set laststatus=2
+	set noshowmode
+	set number
+	set ruler
+	set showcmd
+	set sidescroll=1
+
+    " whitespace
+   	set expandtab
+	set nojoinspaces
+	set shiftwidth=2
+	set softtabstop=2
+	set tabstop=2
+
+    " searching
+        set hlsearch
+	set ignorecase
+	set incsearch
+	set smartcase
+
+    " background processes
+        set autoread
+	set autoindent
+	set clipboard=unnamed
+	set lazyredraw
+	set noswapfile
+	set ttyfast
+
+" Plugins
+    call plug#begin('~/.local/share/nvim/plugged')
+
+    " syntax related
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'alvan/vim-closetag'
+	Plug 'bronson/vim-trailing-whitespace'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'matze/vim-move'
+	Plug 'sheerun/vim-polyglot'
+	Plug 'valloric/matchtagalways'
+	Plug 'tpope/vim-sleuth'
+	Plug 'tmux-plugins/vim-tmux'
+
+   " ui related
+	Plug 'airblade/vim-gitgutter'
+	Plug 'dietsche/vim-lastplace'
+	Plug 'morhetz/gruvbox'
+	Plug 'vim-airline/vim-airline'
+	Plug 'yggdroot/indentline'
+
+    " background related
+	Plug 'w0rp/ale'
+
+    " other
+    	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-surround'
 call plug#end()
 
-" Use deoplete
-let g:deoplete#enable_at_startup = 1
+" Plugin settings
+    " airline
+    	let g:airline_powerline_fonts = 1
+  	let g:airline_theme='gruvbox'
 
-" Set eslint as the only valid JS linter
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
+    " close-tag
+  	let g:closetag_filenames = "*.html,*.jsx"
 
-" Some sane defaults
-set number
-filetype plugin indent on
+    " deoplete
+	let g:deoplete#enable_at_startup = 1
+	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-" Set color scheme to spacegray
-colorscheme spacegray
+    " gitgutter
+  	let g:gitgutter_sign_column_always = 1
+  	let g:gitgutter_sign_added = '++'
+  	let g:gitgutter_sign_modified = '~~'
+  	let g:gitgutter_sign_removed = '__'
+  	let g:gitgutter_sign_removed_first_line = '¯¯'
+  	let g:gitgutter_sign_modified_removed = '~_'
 
-" Set font to Source Code Pro
-set guifont=Source\ Code\ Pro\ 11
+    " matchtagalways
+    	let g:mta_filetypes = {
+  	\ 'javascript.jsx': 1,
+  	\ 'html' : 1,
+  	\ 'xml' : 1,
+  	\ }
+
+    " theme settings
+    	let g:gruvbox_italic = 1
+  	colorscheme gruvbox
+
+    " ale
+	let g:ale_linters = {
+	\   'javascript': ['eslint'],
+	\}
 
 " Webpack recommended stuff
 :set backupcopy=yes
 
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
