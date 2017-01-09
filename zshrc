@@ -92,3 +92,5 @@ export NVM_DIR="/Users/awesomeaniruddh/.nvm"
 alias vim=nvim
 alias tls="tmux ls"
 alias tnew="tmux new -s"
+
+fortune | cowsay
