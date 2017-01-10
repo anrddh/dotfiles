@@ -55,6 +55,7 @@
 	Plug 'morhetz/gruvbox'
 	Plug 'vim-airline/vim-airline'
 	Plug 'yggdroot/indentline'
+	Plug 'christoomey/vim-tmux-navigator'
 
     " background related
 	Plug 'w0rp/ale'
@@ -62,7 +63,7 @@
     " other
     	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-surround'
-call plug#end()
+   call plug#end()
 
 " Plugin settings
     " airline
