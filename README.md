@@ -1,6 +1,6 @@
 # Setup
 
-#### The prompt: [https://github.com/sindresorhus/pure](pure)
+#### The prompt: [pure](https://github.com/sindresorhus/pure)
 ```bash
 $ fpath=( "$HOME/.zfunctions" $fpath )
 $ ln -s "$PWD/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
