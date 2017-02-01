@@ -13,10 +13,23 @@
   set ruler
   set showcmd
   set sidescroll=1
+
+  " Remap C-w-h/C-w-j/C-w-k/C-w-l to C-h/C-j/C-k/C-l
   nmap <silent> <C-k> :wincmd k<CR>
   nmap <silent> <C-j> :wincmd j<CR>
   nmap <silent> <C-h> :wincmd h<CR>
   nmap <silent> <C-l> :wincmd l<CR>
+
+  " toggle relative numbering
+  function! NumberToggle()
+    if(&relativenumber == 1)
+      set number
+      set nornu
+    else
+      set relativenumber
+    endif
+  endfunc
+  nnoremap <C-n> :call NumberToggle()<cr>
 
   " whitespace
   set expandtab
@@ -62,15 +75,15 @@
   Plug 'vim-airline/vim-airline'
   Plug 'yggdroot/indentline'
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'scrooloose/nerdtree'
 
   " background related
   Plug 'w0rp/ale'
+  Plug 'craigemery/vim-autotag'
+  Plug 'vim-scripts/cscope.vim'
 
   " other
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
-  Plug 'lervag/vimtex'
   call plug#end()
 
 " Plugin settings
@@ -108,10 +121,14 @@
   let g:gruvbox_italic = 1
   colorscheme gruvbox
 
-" ale
+  " ale
   let g:ale_linters = {
     \ 'javascript': ['eslint'],
     \ }
+
+  " cscope.vim
+  nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+  nnoremap <leader>l :call ToggleLocationList()<CR>
 
 " Webpack recommended stuff
 :set backupcopy=yes
