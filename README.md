@@ -1,11 +1,18 @@
 # Setup
 
-#### ZSH
+#### zsh
 ```bash
 $ ln -s "$PWD/zshrc" "$HOME/.zshrc"
 $ ln -s "$PWD/zsh" "$HOME/.zsh"
+$ cd zsh
+$ git clone git@github.com:zsh-users/zsh-syntax-highlighting.git
 ```
 
+#### tmux
+```bash
+$ ln -s "$PWD/tmux.conf" "$HOME/.tmux.conf"
+$ ln -s "$PWD/tmux-spotify-info" "$HOME/.tmux-spotify-info"
+```
 #### The prompt: [pure](https://github.com/sindresorhus/pure)
 ```bash
 $ fpath=( "$HOME/.zfunctions" $fpath )
