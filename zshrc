@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/awesomeaniruddh/.oh-my-zsh
 
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bira"
+# ZSH_THEME="bira"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -52,6 +53,9 @@ ZSH_THEME="bira"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git node npm bower brew heroku)
 
+# TEMP INCREASE STACK SIZE LIMIT
+ulimit -S -s 60000
+
 # User configuration
 
 export PATH="$PATH:/Users/awesomeaniruddh/.nvm/versions/node/v5.7.1/bin:/Users/awesomeaniruddh/.rvm/gems/ruby-2.2.1/bin:/Users/awesomeaniruddh/.rvm/gems/ruby-2.2.1@global/bin:/Users/awesomeaniruddh/.rvm/rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/mongod/bin:/opt/X11/bin:/Library/TeX/texbin:$HOME/.rvm/bin:/Users/awesomeaniruddh/.cargo/bin:/Users/awesomeaniruddh/anaconda3/bin:`yarn global bin`:/Users/awesomeaniruddh/dotfiles"
@@ -88,6 +92,10 @@ source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR="/Users/awesomeaniruddh/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# THEME
+autoload -U promptinit; promptinit
+prompt pure
 
 alias vim=nvim
 alias tls="tmux ls"
