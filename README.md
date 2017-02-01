@@ -1,5 +1,11 @@
 # Setup
 
+#### ZSH
+```bash
+$ ln -s "$PWD/zshrc" "$HOME/.zshrc"
+$ ln -s "$PWD/zsh" "$HOME/.zsh"
+```
+
 #### The prompt: [pure](https://github.com/sindresorhus/pure)
 ```bash
 $ fpath=( "$HOME/.zfunctions" $fpath )
