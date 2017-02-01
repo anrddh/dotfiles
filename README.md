@@ -6,6 +6,7 @@ ln -s "$PWD/zshrc" "$HOME/.zshrc"
 ln -s "$PWD/zsh" "$HOME/.zsh"
 cd zsh
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git
+git clone git@github.com:zsh-users/zsh-autosuggestions.git
 ```
 
 ### tmux
