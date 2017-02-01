@@ -57,4 +57,4 @@ alias tat="tmux a -t"
 fortune | cowsay
 
 # Enable syntax highlighting in the prompt
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
