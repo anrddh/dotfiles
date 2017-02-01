@@ -56,5 +56,8 @@ alias tat="tmux a -t"
 
 fortune | cowsay
 
+# Enable zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Enable syntax highlighting in the prompt
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
