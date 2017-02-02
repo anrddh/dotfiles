@@ -1,0 +1,22 @@
+[user]
+	name = Aniruddh Agarwal
+	email = aaniruddh99@gmail.com
+[core]
+	whitespace = warn
+	editor = nvim
+[color]
+	status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	trustExitCode = true
+[help]
+	autocorrect = 30
