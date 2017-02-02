@@ -20,6 +20,9 @@
   nmap <silent> <C-h> :wincmd h<CR>
   nmap <silent> <C-l> :wincmd l<CR>
 
+  " Remap Esc to two semi-colons
+  imap ;; <Esc>
+
   " toggle relative numbering
   function! NumberToggle()
     if(&relativenumber == 1)
