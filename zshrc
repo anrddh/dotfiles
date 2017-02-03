@@ -3,7 +3,7 @@ autoload -Uz compinit;$_; zstyle ':completion:*' menu select
 setopt autocd appendhistory extendedglob correct
 
 # Run z to switch between folders
-. `brew --prefix`/etc/profile.d/z.sh
+. ~/.zsh/z.sh
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
