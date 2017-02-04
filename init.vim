@@ -87,6 +87,7 @@
   " other
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
+  Plug 'easymotion/vim-easymotion'
   call plug#end()
 
 " Plugin settings
