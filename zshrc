@@ -7,11 +7,11 @@ setopt autocd appendhistory extendedglob correct
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
-SAVEHIST=1000
+SAVEHIST=10000
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
 #plugins=(git node npm bower brew heroku)
-
-# TEMP INCREASE STACK SIZE LIMIT
-ulimit -S -s 60000
 
 # aliases
 alias vi=nvim
@@ -23,11 +23,20 @@ alias gs="git status"
 alias gd="git diff"
 alias gp="git push"
 
+source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+# zsh-history-substring key bindings
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 # automatically cd into a directory after making it
 function mkcd {
   dir="$*";
   mkdir -p "$dir" && cd "$dir";
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Load theme
 autoload -U promptinit; promptinit

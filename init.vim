@@ -20,7 +20,34 @@
   nmap <silent> <C-h> :wincmd h<CR>
   nmap <silent> <C-l> :wincmd l<CR>
 
-  " Remap Esc to C-l
+  " Search for text selected in visual mode
+  vnoremap // y/<C-R>"<CR>
+
+  set splitbelow
+  set splitright
+
+  " Make ctrl-h/j/k/l move between windows and auto-insert in terminals
+  func! s:mapMoveToWindowInDirection(direction)
+    func! s:maybeInsertMode(direction)
+      stopinsert
+      execute "wincmd" a:direction
+
+      if &buftype == 'terminal'
+        startinsert!
+      endif
+    endfunc
+
+    execute "tnoremap" "<silent>" "<C-" . a:direction . ">"
+          \ "<C-\\><C-n>"
+          \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
+    execute "nnoremap" "<silent>" "<C-" . a:direction . ">"
+          \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
+  endfunc
+  for dir in ["h", "j", "l", "k"]
+    call s:mapMoveToWindowInDirection(dir)
+  endfor
+
+  " Map Esc to C-l
   imap <C-l> <Esc>
 
   " toggle relative numbering
@@ -68,8 +95,8 @@
   Plug 'valloric/matchtagalways'
   Plug 'tpope/vim-sleuth'
   Plug 'tmux-plugins/vim-tmux'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'Quramy/vim-js-pretty-template'
+  Plug 'Glench/Vim-Jinja2-Syntax'
+  Plug 'jelera/vim-javascript-syntax'
 
   " ui related
   Plug 'airblade/vim-gitgutter'
@@ -78,6 +105,10 @@
   Plug 'vim-airline/vim-airline'
   Plug 'yggdroot/indentline'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'scrooloose/nerdtree'
+  Plug 'edkolev/tmuxline.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'mhinz/vim-startify'
 
   " background related
   Plug 'w0rp/ale'
@@ -113,6 +144,9 @@
   "vim-js-pretty-tempalte
   autocmd FileType typescript JsPreTmpl html
   autocmd FileType typescript syn clear foldBraces
+
+  " Nerdtree
+  map <C-i> :NERDTreeToggle<CR>
 
   " matchtagalways
   let g:mta_filetypes = {
