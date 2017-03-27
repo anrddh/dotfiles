@@ -1,0 +1,12 @@
+host caen
+  HostName login-course.engin.umich.edu
+  User aniruddh
+
+host caenscp
+  HostName sftp.itcs.umich.edu
+  User aniruddh
+
+host *.umich.edu
+  Compression yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
