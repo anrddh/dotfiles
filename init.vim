@@ -3,52 +3,21 @@
   filetype plugin indent on
   syntax on
 
-  " interface
-  set background=dark
-  set colorcolumn=81
-  set cursorline
-  set laststatus=2
-  set noshowmode
-  set number
-  set ruler
-  set showcmd
-  set sidescroll=1
-
+"
   " Remap C-w-h/C-w-j/C-w-k/C-w-l to C-h/C-j/C-k/C-l
   nmap <silent> <C-k> :wincmd k<CR>
   nmap <silent> <C-j> :wincmd j<CR>
   nmap <silent> <C-h> :wincmd h<CR>
   nmap <silent> <C-l> :wincmd l<CR>
 
+  " Share clipboard between multiple vim sessions
+  autocmd CursorHold,FocusGained,FocusLost * rshada|wshada
+
   " Search for text selected in visual mode
   vnoremap // y/<C-R>"<CR>
 
   set splitbelow
   set splitright
-
-  " Make ctrl-h/j/k/l move between windows and auto-insert in terminals
-  func! s:mapMoveToWindowInDirection(direction)
-    func! s:maybeInsertMode(direction)
-      stopinsert
-      execute "wincmd" a:direction
-
-      if &buftype == 'terminal'
-        startinsert!
-      endif
-    endfunc
-
-    execute "tnoremap" "<silent>" "<C-" . a:direction . ">"
-          \ "<C-\\><C-n>"
-          \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
-    execute "nnoremap" "<silent>" "<C-" . a:direction . ">"
-          \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
-  endfunc
-  for dir in ["h", "j", "l", "k"]
-    call s:mapMoveToWindowInDirection(dir)
-  endfor
-
-  " Map Esc to C-l
-  imap <C-l> <Esc>
 
   " toggle relative numbering
   function! NumberToggle()
@@ -87,6 +56,7 @@
 
   " syntax related
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'sebastianmarkow/deoplete-rust'
   Plug 'alvan/vim-closetag'
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'jiangmiao/auto-pairs'
@@ -97,18 +67,21 @@
   Plug 'tmux-plugins/vim-tmux'
   Plug 'Glench/Vim-Jinja2-Syntax'
   Plug 'jelera/vim-javascript-syntax'
+  Plug 'xolox/vim-misc'
+  Plug 'xolox/vim-easytags'
+  Plug 'majutsushi/tagbar'
 
   " ui related
   Plug 'airblade/vim-gitgutter'
   Plug 'dietsche/vim-lastplace'
-  Plug 'morhetz/gruvbox'
-  Plug 'vim-airline/vim-airline'
+  Plug 'chriskempson/base16-vim'
   Plug 'yggdroot/indentline'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'scrooloose/nerdtree'
-  Plug 'edkolev/tmuxline.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'mhinz/vim-startify'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
   " background related
   Plug 'w0rp/ale'
@@ -124,7 +97,7 @@
 " Plugin settings
   " airline
   let g:airline_powerline_fonts = 1
-  let g:airline_theme='gruvbox'
+  let g:airline_theme='base16'
 
   " close-tag
   let g:closetag_filenames = "*.html,*.jsx"
@@ -132,6 +105,9 @@
   " deoplete
   let g:deoplete#enable_at_startup = 1
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+    " deoplete-rust
+    let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
+    let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
   " gitgutter
   let g:gitgutter_sign_column_always = 1
@@ -144,6 +120,8 @@
   "vim-js-pretty-tempalte
   autocmd FileType typescript JsPreTmpl html
   autocmd FileType typescript syn clear foldBraces
+  autocmd FileType rust let g:ale_lint_on_text_changed = 0
+  autocmd FileType rust let g:ale_lint_on_save = 1
 
   " Nerdtree
   map <C-i> :NERDTreeToggle<CR>
@@ -156,8 +134,11 @@
     \ }
 
   " theme settings
-  let g:gruvbox_italic = 1
-  colorscheme gruvbox
+  if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+  endif
+  colorscheme base16-mexico-light
 
   " ale
   let g:ale_linters = {
@@ -168,8 +149,19 @@
   nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
   nnoremap <leader>l :call ToggleLocationList()<CR>
 
+  " interface
+  set background=light
+  set colorcolumn=81
+  set cursorline
+  set laststatus=2
+  set noshowmode
+  set number
+  set ruler
+  set showcmd
+  set sidescroll=1
+
 " Webpack recommended stuff
-:set backupcopy=yes
+set backupcopy=yes
 
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
