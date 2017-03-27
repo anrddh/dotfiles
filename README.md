@@ -1,5 +1,8 @@
 # Setup
 
+If anyone actually cares, these instructions are *probably* outdated and I'm too
+lazy to update them.
+
 ### zsh
 ```bash
 ln -s "$PWD/zshrc" "$HOME/.zshrc"
