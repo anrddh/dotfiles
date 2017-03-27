@@ -1,6 +1,8 @@
 host caen
-  HostName login-course.engin.umich.edu
+  HostName caen-vnc-vm14.engin.umich.edu
   User aniruddh
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
 
 host caenscp
   HostName sftp.itcs.umich.edu
