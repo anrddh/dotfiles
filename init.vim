@@ -74,7 +74,7 @@
   " ui related
   Plug 'airblade/vim-gitgutter'
   Plug 'dietsche/vim-lastplace'
-  Plug 'chriskempson/base16-vim'
+  Plug 'morhetz/gruvbox'
   Plug 'yggdroot/indentline'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'scrooloose/nerdtree'
@@ -97,7 +97,6 @@
 " Plugin settings
   " airline
   let g:airline_powerline_fonts = 1
-  let g:airline_theme='base16'
 
   " close-tag
   let g:closetag_filenames = "*.html,*.jsx"
@@ -134,11 +133,9 @@
     \ }
 
   " theme settings
-  if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-  endif
-  colorscheme base16-mexico-light
+  let g:gruvbox_italic=1
+  set background=dark
+  colorscheme gruvbox
 
   " ale
   let g:ale_linters = {
@@ -150,7 +147,6 @@
   nnoremap <leader>l :call ToggleLocationList()<CR>
 
   " interface
-  set background=light
   set colorcolumn=81
   set cursorline
   set laststatus=2
