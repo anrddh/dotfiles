@@ -22,6 +22,9 @@ alias tat="tmux a -t"
 alias gs="git status"
 alias gd="git diff"
 alias gp="git push"
+alias ls="ls -G"
+alias ag="ag --pager=\"less -R\""
+alias kauth="kinit && aklog"
 
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # zsh-history-substring key bindings
@@ -38,9 +41,12 @@ function mkcd {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# source zplug
+source ~/.zplug/init.zsh
+#
 # Load theme
-autoload -U promptinit; promptinit
-prompt pure
+zplug "frmendes/geometry"
+zplug load --verbose
 # Load plugins
 source ~/.zsh/vi-mode.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
