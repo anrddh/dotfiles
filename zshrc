@@ -11,7 +11,6 @@ SAVEHIST=10000
 setopt appendhistory
 setopt sharehistory
 setopt incappendhistory
-#plugins=(git node npm bower brew heroku)
 
 # aliases
 alias vi=nvim
@@ -46,7 +45,7 @@ source ~/.zplug/init.zsh
 #
 # Load theme
 zplug "frmendes/geometry"
-zplug load --verbose
+zplug load
 # Load plugins
 source ~/.zsh/vi-mode.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
