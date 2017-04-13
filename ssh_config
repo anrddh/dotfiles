@@ -3,6 +3,7 @@ host caen
   User aniruddh
   GSSAPIAuthentication yes
   GSSAPIDelegateCredentials yes
+  ServerAliveInterval 120
 
 host caenscp
   HostName sftp.itcs.umich.edu
