@@ -38,6 +38,14 @@ function mkcd {
   mkdir -p "$dir" && cd "$dir";
 }
 
+ssh() {
+  if [[ $@ == "caen" ]]; then
+    command ssh -t "$@" exec zsh
+  else
+    command ssh "$@"
+  fi
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # source zplug
