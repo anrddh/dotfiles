@@ -117,11 +117,13 @@
     Plug 'mhinz/vim-startify'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'edkolev/tmuxline.vim'
 
   " background related
     Plug 'w0rp/ale'
     Plug 'craigemery/vim-autotag'
     Plug 'vim-scripts/cscope.vim'
+    Plug 'mileszs/ack.vim'
 
   " other
     Plug 'tpope/vim-commentary'
@@ -176,7 +178,8 @@
     let g:ctrlp_match_window = 'bottom,order:ttb'
     let g:ctrlp_switch_buffer = 0
     let g:ctrlp_working_path_mode = 0
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'let g:ctrlp_cmd = 'CtrlP'
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+    let g:ctrlp_cmd = 'CtrlP'
 
   " theme settings
     let g:gruvbox_italic=1
