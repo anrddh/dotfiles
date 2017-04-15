@@ -54,6 +54,11 @@ source ~/.zplug/init.zsh
 # Load theme
 zplug "frmendes/geometry"
 zplug load
+
+# change prompt symbol color based on hostname
+export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
+export PROMPT_GEOMETRY_COLORIZE_ROOT=true
+
 # Load plugins
 source ~/.zsh/vi-mode.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
