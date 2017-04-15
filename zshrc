@@ -23,7 +23,6 @@ alias gd="git diff"
 alias gp="git push"
 alias ls="ls -G"
 alias ag="ag --pager=\"less -R\""
-alias kauth="kinit && aklog"
 
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # zsh-history-substring key bindings
@@ -54,10 +53,6 @@ source ~/.zplug/init.zsh
 # Load theme
 zplug "frmendes/geometry"
 zplug load
-
-# change prompt symbol color based on hostname
-export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
-export PROMPT_GEOMETRY_COLORIZE_ROOT=true
 
 # Load plugins
 source ~/.zsh/vi-mode.zsh
