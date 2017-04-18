@@ -5,11 +5,17 @@
     <!-- The label should be the same as the filename without the extension -->
     <key>Label</key>
     <string>com.aniruddh.kerb-auth</string>
+    <key>UserName</key>
+    <string>awesomeaniruddh</string>
     <!-- Specify how to run your program here -->
     <key>ProgramArguments</key>
     <array>
         <string>/Users/awesomeaniruddh/.kerbauth</string>
     </array>
+    <key>StandardOutPath</key>
+    <string>/Users/awesomeaniruddh/.kerbauth_stdout</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/awesomeaniruddh/.kerbauth_stderr</string>
     <!-- Run every 8 hours -->
     <key>StartInterval</key>
     <integer>28800</integer><!-- seconds -->
