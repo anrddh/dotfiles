@@ -1,4 +1,5 @@
 #!/bin/sh
+export PATH="$PATH:/usr/local/bin"
 
 kticket=$(klist | grep UMICH.EDU | grep -v Expired | grep -v Principal)
 
