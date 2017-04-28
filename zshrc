@@ -57,3 +57,7 @@ zplug load
 # Load plugins
 source ~/.zsh/vi-mode.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export GEOMETRY_PROMPT_PREFIX=""
+export GEOMETRY_PROMPT_SUFFIX=""
+export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
