@@ -3,6 +3,7 @@
   inoremap <esc> <nop>
   " leader key stuff
     let mapleader=","
+    let maplocalleader="\\"
     nnoremap <leader>ev :vsp $MYVIMRC<CR>
     nnoremap <leader>ez :vsp ~/.zshrc<CR>
     nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -105,6 +106,7 @@
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-easytags'
     Plug 'majutsushi/tagbar'
+    Plug 'lervag/vimtex'
 
   " ui related
     Plug 'airblade/vim-gitgutter'
@@ -196,3 +198,5 @@
 
 " tern
   autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+
+set conceallevel=0
