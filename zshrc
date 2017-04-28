@@ -52,6 +52,7 @@ source ~/.zplug/init.zsh
 #
 # Load theme
 zplug "frmendes/geometry"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug load
 
 # Load plugins
