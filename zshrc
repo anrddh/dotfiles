@@ -62,3 +62,8 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export GEOMETRY_PROMPT_PREFIX=""
 export GEOMETRY_PROMPT_SUFFIX=""
 export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
+
+export LANG="en_US.UTF-8"
+export LC_CTYPE="$LANG"
+export LC_ALL="$LANG"
+export EDITOR="emacsclient -c"
