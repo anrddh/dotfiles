@@ -104,7 +104,6 @@
     Plug 'Glench/Vim-Jinja2-Syntax'
     Plug 'jelera/vim-javascript-syntax'
     Plug 'xolox/vim-misc'
-    Plug 'xolox/vim-easytags'
     Plug 'majutsushi/tagbar'
     Plug 'lervag/vimtex'
 
@@ -124,7 +123,6 @@
   " background related
     Plug 'w0rp/ale'
     Plug 'craigemery/vim-autotag'
-    Plug 'vim-scripts/cscope.vim'
     Plug 'mileszs/ack.vim'
 
   " other
@@ -172,9 +170,6 @@
     \ 'xml' : 1,
     \ }
 
-  " easytags
-    let g:easytags_async=1
-
   " CtrlP
     let g:ctrlp_map = '<c-p>'
     let g:ctrlp_match_window = 'bottom,order:ttb'
@@ -191,10 +186,6 @@
 
   " ale
     let g:ale_linters = { 'javascript': ['eslint']  }
-
-  " cscope.vim
-    nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
-    nnoremap <leader>l :call ToggleLocationList()<CR>
 
 " tern
   autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
