@@ -170,6 +170,9 @@
     \ 'xml' : 1,
     \ }
 
+  " polyglot
+  let g:polyglot_disabled = ['latex']
+
   " CtrlP
     let g:ctrlp_map = '<c-p>'
     let g:ctrlp_match_window = 'bottom,order:ttb'
