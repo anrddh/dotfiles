@@ -13,3 +13,12 @@ host *.umich.edu
   Compression yes
   GSSAPIAuthentication yes
   GSSAPIDelegateCredentials yes
+
+host bandit
+  HostName bandit.labs.overthewire.org
+  Port 2220
+
+Host znc
+  HostName ec2-13-228-73-171.ap-southeast-1.compute.amazonaws.com
+  User ubuntu
+  IdentityFile ~/.ssh/aws-sing.pem
