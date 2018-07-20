@@ -1,0 +1,17 @@
+[user]
+	name = Aniruddh Agarwal
+	email = aaniruddh99@gmail.com
+[core]
+	whitespace = warn
+	editor = emacsclient -c
+[color]
+	status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f
+[help]
+	autocorrect = 30
