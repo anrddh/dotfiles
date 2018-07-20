@@ -1,5 +1,5 @@
 host caen
-  HostName caen-vnc-vm14.engin.umich.edu
+  HostName login.engin.umich.edu
   User aniruddh
   GSSAPIAuthentication yes
   GSSAPIDelegateCredentials yes
