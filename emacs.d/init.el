@@ -13,6 +13,13 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; "Natural title bar"
+(add-to-list 'default-frame-alist
+             '(ns-transparent-titlebar . t))
+
+(add-to-list 'default-frame-alist
+             '(ns-appearance . dark)) ;; or dark - depending on your theme
+
 ;; Don't indent with tabs
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -69,7 +76,12 @@
   (use-package evil-surround
     :ensure t
     :config
-    (global-evil-surround-mode)))
+    (global-evil-surround-mode))
+  (use-package evil-escape
+    :ensure t
+    :config
+    (evil-escape-mode)
+    (setq-default evil-escape-key-sequence "jk")))
 
 (use-package expand-region
   :ensure t
@@ -214,3 +226,17 @@
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (evil-escape projectile markdown-mode idris-mode rust-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery f lsp-mode flycheck company avy counsel expand-region evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
