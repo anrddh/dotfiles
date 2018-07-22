@@ -2,12 +2,20 @@
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
 
+;; UTF-8 by default
+(prefer-coding-system 'utf-8)
+(set-language-environment "UTF-8")
+
 ;; Get rid of the start screen
 (setq inhibit-startup-message t)
 
-
-(setq backup-directory-alist `(("." . "~/.saves")))
-(setq backup-by-copying t)
+;; Backup-file stuff
+(setq backup-by-copying      t                      ; don't clobber symlinks
+      backup-directory-alist '(("." . "~/.saves/")) ; don't litter my fs tree
+      delete-old-versions    t
+      kept-new-versions      6
+      kept-old-versions      2
+      version-control        t)
 
 ;; Make the UI cleaner
 (tool-bar-mode -1)
@@ -40,6 +48,14 @@
 (unless (package-installed-p 'use-package)
         (package-refresh-contents)
         (package-install 'use-package))
+
+(use-package org
+  :ensure t
+  :config
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -233,7 +249,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-escape projectile markdown-mode idris-mode rust-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery f lsp-mode flycheck company avy counsel expand-region evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell use-package))))
+    (org-bullets org-mode evil-escape projectile markdown-mode idris-mode rust-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery f lsp-mode flycheck company avy counsel expand-region evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
