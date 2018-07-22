@@ -79,15 +79,15 @@
 (use-package evil
   :ensure t
   :init
-  (setq evil-want-C-u-scroll t)
-  :config
+  (setq evil-want-C-u-scroll  t
+        evil-want-integration nil)
 
+  :config
   (use-package evil-leader
     :ensure t
     :config
     (global-evil-leader-mode)
     (evil-leader/set-leader "<SPC>"))
-
   (evil-mode 1)
 
   (use-package evil-surround
@@ -98,7 +98,11 @@
     :ensure t
     :config
     (evil-escape-mode)
-    (setq-default evil-escape-key-sequence "jk")))
+    (setq-default evil-escape-key-sequence "jk"))
+  (use-package evil-collection
+    :ensure t
+    :config
+    (evil-collection-init)))
 
 (use-package expand-region
   :ensure t
