@@ -13,5 +13,7 @@ alias ga   "git add -A"
 alias gc   "git commit"
 alias gpom "git push origin master"
 
+set PATH $HOME/.cargo/bin $PATH
+
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
