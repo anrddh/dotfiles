@@ -52,6 +52,7 @@
 (use-package org
   :ensure t
   :config
+  (setq org-ellipsis "↴")
   (use-package org-bullets
     :ensure t
     :config
