@@ -151,6 +151,11 @@
   :bind ("M-/" . 'company-complete-common-or-cycle)
   :config (setq company-idle-delay 0))
 
+;; "All the icons"
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode))
+
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode)
@@ -254,7 +259,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (org-bullets org-mode evil-escape projectile markdown-mode idris-mode rust-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery f lsp-mode flycheck company avy counsel expand-region evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell use-package))))
+    (company-box evil-collection org-bullets org-mode evil-escape projectile markdown-mode idris-mode rust-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery f lsp-mode flycheck company avy counsel expand-region evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
