@@ -257,6 +257,13 @@
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy))
+
+(use-package hledger-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.journal\\'" . hledger-mode))
+  (setq hledger-jfile "/Users/anrddh/Documents/Finance/Main.journal"))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -264,7 +271,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (company-box evil-collection org-bullets org-mode evil-escape projectile markdown-mode idris-mode rust-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery f lsp-mode flycheck company avy counsel expand-region evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell use-package))))
+    (projectile idris-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery lsp-rust f lsp-mode flycheck company-box company avy counsel expand-region evil-collection evil-escape evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell org-bullets use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
