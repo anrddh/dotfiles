@@ -264,6 +264,10 @@
   (add-to-list 'auto-mode-alist '("\\.journal\\'" . hledger-mode))
   (setq hledger-jfile "/Users/anrddh/Documents/Finance/Main.journal"))
 
+;; FISH
+(use-package fish-mode
+  :ensure t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
