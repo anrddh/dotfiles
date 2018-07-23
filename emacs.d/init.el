@@ -171,6 +171,15 @@
     :ensure f
     :after flycheck))
 
+(use-package lsp-rust
+  :ensure t
+  :after lsp-mode
+  :init
+  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
+  :config
+  (add-hook 'rust-mode-hook #'lsp-rust-enable)
+  (add-hook 'rust-mode-hook #'flycheck-mode))
+
 (use-package cquery
   :ensure t
   :after lsp-mode
@@ -222,10 +231,6 @@
 ;;             '(lambda () (liquid-types-mode)))
 ;;   (add-hook 'literate-haskell-mode-hook
 ;;             '(lambda () (liquid-types-mode))))
-
-;; Rust
-(use-package rust-mode
-  :ensure t)
 
 ;; Idris
 (use-package idris-mode
