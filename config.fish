@@ -2,6 +2,11 @@ function fish_prompt
 	echo (prompt_pwd) "λ "
 end
 
+function mkcd
+    mkdir $argv
+    and cd $argv
+end
+
 # Aliases
 ## Text Editor
 alias emd "Emacs --daemon"
