@@ -180,6 +180,13 @@
   (add-hook 'rust-mode-hook #'lsp-rust-enable)
   (add-hook 'rust-mode-hook #'flycheck-mode))
 
+(use-package flycheck-rust
+  :ensure t
+  :after lsp-rust
+  :config
+  (with-eval-after-load 'rust-mode
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
+
 (use-package cquery
   :ensure t
   :after lsp-mode
@@ -275,7 +282,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (projectile idris-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery lsp-rust f lsp-mode flycheck company-box company avy counsel expand-region evil-collection evil-escape evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell org-bullets use-package))))
+    (flycheck-rust projectile idris-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery lsp-rust f lsp-mode flycheck company-box company avy counsel expand-region evil-collection evil-escape evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell org-bullets use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
