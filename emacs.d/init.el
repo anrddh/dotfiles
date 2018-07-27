@@ -275,6 +275,9 @@
 (use-package fish-mode
   :ensure t)
 
+(use-package vagrant-tramp
+  :ensure t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -282,7 +285,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flycheck-rust projectile idris-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery lsp-rust f lsp-mode flycheck company-box company avy counsel expand-region evil-collection evil-escape evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell org-bullets use-package))))
+    (vagrant-tramp flycheck-rust projectile idris-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery lsp-rust f lsp-mode flycheck company-box company avy counsel expand-region evil-collection evil-escape evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell org-bullets use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
