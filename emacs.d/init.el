@@ -68,9 +68,6 @@
   :config
   (load-theme 'dracula t))
 
-(use-package try
-  :ensure t)
-
 (use-package which-key
   :ensure t
   :config
@@ -80,7 +77,8 @@
   :ensure t
   :init
   (setq evil-want-C-u-scroll  t
-        evil-want-integration nil)
+        evil-want-integration nil
+        evil-want-keybinding nil)
 
   :config
   (use-package evil-leader
@@ -151,16 +149,23 @@
   :bind ("M-/" . 'company-complete-common-or-cycle)
   :config (setq company-idle-delay 0))
 
-;; "All the icons"
-(use-package company-box
-  :ensure t
-  :hook (company-mode . company-box-mode))
-
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode)
-  :config (setq flycheck-check-syntax-automatically
-                '(mode-enabled idle-change save)))
+  :config
+  (setq flycheck-check-syntax-automatically
+        '(mode-enabled idle-change save))
+  (add-hook 'c++-mode-hook (lambda () (setq
+                                       flycheck-clang-language-standard
+                                       "c++17")))
+  (add-hook 'c++-mode-hook (lambda () (setq
+                                       flycheck-gcc-language-standard
+                                       "c++17"))))
+
+(use-package modern-cpp-font-lock
+  :ensure t
+  :config
+  (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode))
 
 (use-package lsp-mode
   :ensure t
@@ -194,7 +199,22 @@
   (setq cquery-executable "/usr/local/bin/cquery"))
 
 (use-package auctex
-  :ensure t)
+  :ensure t
+  :config
+  (setq-default TeX-master nil) ; Query for master file.
+  (add-hook 'LaTeX-mode-hook (lambda ()
+                               (push
+                                '("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
+                                  :help "Run latexmk on file")
+                                TeX-command-list)))
+  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+  (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk")))
+  (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+  (setq TeX-view-program-list
+        '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b"))))
+
+(add-hook 'text-mode-hook 'flyspell-mode)
+
 
 (use-package undo-tree
   :ensure t
@@ -265,18 +285,15 @@
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy))
 
-(use-package hledger-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.journal\\'" . hledger-mode))
-  (setq hledger-jfile "/Users/anrddh/Documents/Finance/Main.journal"))
-
 ;; FISH
 (use-package fish-mode
   :ensure t)
 
-(use-package vagrant-tramp
+;; Common lisp
+(use-package sly
   :ensure t)
+
+(server-start)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -285,7 +302,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (vagrant-tramp flycheck-rust projectile idris-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery lsp-rust f lsp-mode flycheck company-box company avy counsel expand-region evil-collection evil-escape evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell org-bullets use-package))))
+    (modern-cpp-font-lock fill-column-indicator ledger-mode vagrant lua-mode vagrant-tramp flycheck-rust projectile idris-mode intero haskell-mode evil-magit magit hungry-delete auctex cquery lsp-rust f lsp-mode flycheck company-box company avy counsel expand-region evil-collection evil-escape evil-surround evil-leader evil which-key try dracula-theme exec-path-from-shell org-bullets use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
