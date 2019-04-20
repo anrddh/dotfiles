@@ -1,6 +1,6 @@
 [user]
 	name = Aniruddh Agarwal
-	email = aaniruddh99@gmail.com
+	email = me@anrddh.me
 [core]
 	whitespace = warn
 	editor = emacsclient -c
